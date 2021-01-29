@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test.amp</title>
+    <style>
+        h1 {color:green!important;}
+    </style>
+</head>
+<body>
+<h1>AMPscript Syntax Highlighter</h1>
+<h2></h2>
+Now is the time for all good men and women to come to the aid of their country.
+%%[
+
+    /** this is a comment! **/
+    /* this is a comment, too! */
+    /*
+      multi-line comment
+    */
+
+    VAR @VARIABLE1
+    VAR @Variable2
+    VAR @variable
+    VAR @1ThisIsNotAVariable /* not a valid variable */
+    VAR @ThisHowever_IsAvariable1
+
+    SET @ThisHowever_IsAvariable2 = 'test'
+    SET @ThisHowever_IsAvariable3 = 1234515143214312341234
+    SET @ThisHowever_IsAvariable4 = true
+    SET @ThisHowever_IsAvariable5 = false
+    SET @ThisHowever_IsAvariable6 = null
+    set @ThisHowever_IsAvariable7 = [Naked Personalization String with Spaces]
+    set @ThisHowever_IsAvariable8 = [NakedPersonalizationStringNoSpaces]
+
+    /* system string */
+    set @jobIid = jobid
+
+    /* FOR LOOP */
+    FOR @j = 1 to @numofProperties DO
+
+        IF @j >= 1 AND @numofProperties == 16 THEN
+
+            SET @currentProp = Row(@properties, @j)
+            Set @Field1= FIELD(@currentProp ,"Name")
+            set @Field2= FIELD(@currentProp ,"Value")
+
+        ENDIF
+
+    NEXT @j
+
+]%%
+
+<span style="color: #000;">%%=v(@shipLabel)=%% %%[ if @ship > 1 then ]%%days%%[ else ]%%day%%[ endif ]%%</span>
+
+
+%%[ IF @var1 >= @var2 and @var1 < 1000 THEN ]%%
+
+   <h1>WHEE!</h1>
+   Hi, %%= v(@fname) =%%
+   <img src='%%=v(@imageURL1)=%%' />
+   <br>%%=v(@imageURL1)=%%
+
+%%[ ELSEIF @var1 <= @var3 OR @var4 != "booger" then ]%%
+
+   <h1>WHOA!</h1>
+   Hey, %%=v(@fname)=%%
+   <img src="%%=v(@imageURL2)=%%" />
+   <br>%%=v(@imageURL2)=%%
+
+%%[ ELSE ]%%
+
+   <h1>WHAT?</h1>
+   %%__AdditionalEmailAttribute1%%
+
+%%[ ENDIF ]%%
+
+<!-- alternate block syntax -->
+<script runat="server" language="ampscript">
+
+    FOR @j = 1 to @numofProperties DO
+
+        IF @j >= 1 AND @numofProperties == 16 THEN
+
+            SET @currentProp = Row(@properties, @j)
+            Set @Field1= FIELD(@currentProp ,"Name")
+            set @Field2= FIELD(@currentProp ,"Value")
+
+        ENDIF
+
+    NEXT @j
+
+</script>
+
+<!-- SYSTEM STRINGS - BLOCK -->
+%%[
+
+    /* Email Date Strings*/
+    set @a = xtmonth
+    set @a = xtmonthnumeric
+    set @a = xtday
+    set @a = xtdayofweek
+    set @a = xtyear
+    set @a = xtshortdate
+    set @a = xtlongdate
+
+    /* Email Data Strings */
+    set @a = emailaddr
+    set @a = firstname_
+    set @a = firstname
+    set @a = lastname_
+    set @a = lastname
+    set @a = subscriberid
+    set @a = _subscriberkey
+    set @a = listid
+    set @a = list_
+    set @a = listsubid
+    set @a = _messagetypepreference
+
+    /* Sender Data Strings */
+    set @a = replyname
+    set @a = replyemailaddress
+    set @a = memberid
+    set @a = member_busname
+    set @a = member_addr
+    set @a = member_city
+    set @a = member_state
+    set @a = member_postalcode
+    set @a = member_country
+
+    /* Email URL Data Strings */
+    set @a = view_email_url
+    set @a = ftaf_url
+    set @a = subscription_center_url
+    set @a = profile_center_url
+    set @a = unsub_center_url
+    set @a = double_opt_in_url
+
+    /* RMM Data Strings */
+    set @a = _RMM_Headers
+    set @a = _RMM_ReplyBodyText
+    set @a = _RMM_ReplyBodyHTML
+    set @a = _RMM_ReplySubject
+    set @a = _RMM_JobID
+    set @a = _RMM_ListID
+    set @a = _RMM_BatchID
+    set @a = _RMM_SubscriberID
+    set @a = _RMM_RecipientEmailAddress
+    set @a = _RMM_RecipientSubscriberKey
+    set @a = _replycontent
+
+    /* MobileConnect Data Strings */
+    set @a = MOBILE_NUMBER
+    set @a = SHORT_CODE
+    set @a = MSG(0)
+    set @a = MSG(0).VERB
+    set @a = MSG(0).NOUNS
+    set @a = MSG(0).NOUN(0)
+    set @a = MSG(0).NOUN(1)
+    set @a = MSG(0).NOUN(2)
+    set @a = MSG(0).NOUN(3)
+    set @a = MMS_CONTENT_URL(0)
+    set @a = MMS_CONTENT_URL(1)
+    set @a = MMS_CONTENT_URL(2)
+    set @a = MMS_CONTENT_URL(3)
+
+    /* MobileConnect Contact Strings*/
+    set @a = _CarrierID
+    set @a = _Channel
+    set @a = _City
+    set @a = _ContactID
+    set @a = _CountryCode
+    set @a = _CreatedBy
+    set @a = _CreatedDate
+    set @a = _FirstName
+    set @a = _IsHonorDST
+    set @a = _LastName
+    set @a = _MobileNumber
+    set @a = _ModifiedBy
+    set @a = _ModifiedDate
+    set @a = _Priority
+    set @a = _Source
+    set @a = _SourceObjectID
+    set @a = _State
+    set @a = _Status
+    set @a = _UTCOffset
+    set @a = _ZipCode
+
+    /* GroupConnect Data Strings*/
+    set @a = LINE_ADDRESS_ID
+    set @a = LINE_JOB_ID
+    set @a = LINE_SUBSCRIBER_ID
+    set @a = TEXT
+    set @a = VERB
+    set @a = TEXT.NOUN
+    set @a = TEXT.NOUN(1)
+    set @a = TEXT.NOUN(2)
+    set @a = TEXT.NOUN(3)
+    set @a = TEXT.NOUN(4)
+    set @a = TEXT.NOUN(5)
+    set @a = STKR.STKPKGID
+    set @a = STKR.STKID
+    set @a = STKR.STKTXT
+
+    /* Website Data Strings */
+    set @a = microsite_base_url[default]ID[/default]
+    set @a = PAGEURL
+
+    /* Email Analytics Strings */
+    set @a = linkname
+    set @a = _ImpressionRegionID
+    set @a = _ImpressionRegionName
+    set @a = AdditionalInfo_
+    set @a = __AdditionalEmailAttribute1
+    set @a = __AdditionalEmailAttribute2
+    set @a = __AdditionalEmailAttribute3
+    set @a = __AdditionalEmailAttribute4
+    set @a = __AdditionalEmailAttribute5
+    set @a = __AdditionalEmailAttribute6
+    set @a = __AdditionalEmailAttribute7
+    set @a = __AdditionalEmailAttribute8
+    set @a = __AdditionalEmailAttribute9
+
+    /* Einstein Email Data Strings */
+    set @a = ImageLink
+    set @a = ProductName
+    set @a = Description
+    set @a = RegularPrice
+    set @a = SalePrice
+    set @a = RegularPriceMain
+    set @a = SalePriceMain
+    set @a = RegularPriceFractional
+    set @a = SalePriceFractional
+    set @a = ToFloat
+    set @a = [a]LongestWordLength
+    set @a = [a]LengthNum
+    set @a = First[n]
+    set @a = Split[d]At[i]
+    set @a = [a]Replace[r]With[w]End
+    set @a = [a]UpTo[n]By[d]With[o]End
+
+]%%
+
+<!-- SYSTEM STRINGS - INLINE -->
+
+    <!-- Email Date Strings -->
+    %%xtmonth%%
+    %%xtmonthnumeric%%
+    %%xtday%%
+    %%xtdayofweek%%
+    %%xtyear%%
+    %%xtshortdate%%
+    %%xtlongdate%%
+
+    <!-- Email Data Strings -->
+    %%emailaddr%%
+    %%firstname_%%
+    %%firstname%%
+    %%lastname_%%
+    %%lastname%%
+    %%subscriberid%%
+    %%_subscriberkey%%
+    %%listid%%
+    %%list_%%
+    %%listsubid%%
+    %%_messagetypepreference%%
+
+    <!-- Sender Data Strings -->
+    %%replyname%%
+    %%replyemailaddress%%
+    %%memberid%%
+    %%member_busname%%
+    %%member_addr%%
+    %%member_city%%
+    %%member_state%%
+    %%member_postalcode%%
+    %%member_country%%
+
+    <!-- Email URL Data Strings -->
+    %%view_email_url%%
+    %%ftaf_url%%
+    %%subscription_center_url%%
+    %%profile_center_url%%
+    %%unsub_center_url%%
+    %%double_opt_in_url%%
+
+    <!-- RMM Data Strings -->
+    %%_RMM_Headers%%
+    %%_RMM_ReplyBodyText%%
+    %%_RMM_ReplyBodyHTML%%
+    %%_RMM_ReplySubject%%
+    %%_RMM_JobID%%
+    %%_RMM_ListID%%
+    %%_RMM_BatchID%%
+    %%_RMM_SubscriberID%%
+    %%_RMM_RecipientEmailAddress%%
+    %%_RMM_RecipientSubscriberKey%%
+    %%_replycontent%%
+
+    <!-- MobileConnect Data Strings -->
+    %%MOBILE_NUMBER%%
+    %%SHORT_CODE%%
+    %%MSG(0)%%
+    %%MSG(0).VERB%%
+    %%MSG(0).NOUNS%%
+    %%MSG(0).NOUN(0)%%
+    %%MSG(0).NOUN(1)%%
+    %%MSG(0).NOUN(2)%%
+    %%MSG(0).NOUN(3)%%
+    %%MMS_CONTENT_URL(1)%%
+    %%MMS_CONTENT_URL(2)%%
+    %%MMS_CONTENT_URL(3)%%
+
+    <!-- MobileConnect Contact Strings -->
+    %%_CarrierID%%
+    %%_Channel%%
+    %%_City%%
+    %%_ContactID%%
+    %%_CountryCode%%
+    %%_CreatedBy%%
+    %%_CreatedDate%%
+    %%_FirstName%%
+    %%_IsHonorDST%%
+    %%_LastName%%
+    %%_MobileNumber%%
+    %%_ModifiedBy%%
+    %%_ModifiedDate%%
+    %%_Priority%%
+    %%_Source%%
+    %%_SourceObjectID%%
+    %%_State%%
+    %%_Status%%
+    %%_UTCOffset%%
+    %%_ZipCode%%
+
+    <!-- GroupConnect Data Strings -->
+    %%LINE_ADDRESS_ID%%
+    %%LINE_JOB_ID%%
+    %%LINE_SUBSCRIBER_ID%%
+    %%TEXT%%
+    %%VERB%%
+    %%TEXT.NOUN%%
+    %%TEXT.NOUN(1)%%
+    %%STKR.STKPKGID%%
+    %%STKR.STKID%%
+    %%STKR.STKTXT%%
+
+    <!-- Website Data Strings -->
+    %%microsite_base_url[default]ID[/default]%%
+    %%PAGEURL%%
+
+    <!-- Email Analytics Strings -->
+    %%linkname%%
+    %%_ImpressionRegionID%%
+    %%_ImpressionRegionName%%
+    %%AdditionalInfo_%%
+    %%__AdditionalEmailAttribute1%%
+    %%__AdditionalEmailAttribute2%%
+    %%__AdditionalEmailAttribute3%%
+    %%__AdditionalEmailAttribute4%%
+    %%__AdditionalEmailAttribute5%%
+    %%__AdditionalEmailAttribute6%%
+    %%__AdditionalEmailAttribute7%%
+    %%__AdditionalEmailAttribute8%%
+    %%__AdditionalEmailAttribute9%%
+
+    <!-- Einstein Email Data Strings -->
+    %%ImageLink%%
+    %%ProductName%%
+    %%Description%%
+    %%RegularPrice%%
+    %%SalePrice%%
+    %%RegularPriceMain%%
+    %%SalePriceMain%%
+    %%RegularPriceFractional%%
+    %%SalePriceFractional%%
+    %%ToFloat%%
+    %%[a]LongestWordLength%%
+    %%[a]LengthNum%%
+    %%First[n]%%
+    %%Split[d]At[i]%%
+    %%[a]Replace[r]With[w]End%%
+    %%[a]UpTo[n]By[d]With[o]End%%
+
+%%[
+
+    /* FUNCTIONS - BLOCK */
+
+    set @a = Add()
+    set @a = AddMSCRMListMember()
+    set @a = AddObjectArrayItem()
+    set @a = AttachFile()
+    set @a = AttributeValue()
+    set @a = AuthenticatedEmployeeID()
+    set @a = AuthenticatedEmployeeNotificationAddress()
+    set @a = AuthenticatedEmployeeUserName()
+    set @a = AuthenticatedEnterpriseID()
+    set @a = AuthenticatedMemberID()
+    set @a = AuthenticatedMemberName()
+    set @a = BarCodeURL()
+    set @a = Base64Decode()
+    set @a = Base64Encode()
+    set @a = BeginImpressionRegion()
+    set @a = BuildOptionList()
+    set @a = BuildRowSetFromString()
+    set @a = BuildRowSetFromXML()
+    set @a = Char()
+    set @a = ClaimRow()
+    set @a = ClaimRowValue()
+    set @a = CloudPagesURL()
+    set @a = Concat()
+    set @a = ContentArea()
+    set @a = ContentAreaByName()
+    set @a = ContentBlockbyId()
+    set @a = ContentBlockbyKey()
+    set @a = ContentBlockbyName()
+    set @a = ContentImagebyID()
+    set @a = ContentImagebyKey()
+    set @a = CreateMSCRMRecord()
+    set @a = CreateObject()
+    set @a = CreateSalesforceObject()
+    set @a = CreateSmsConversation()
+    set @a = DataExtensionRowCount()
+    set @a = DateAdd()
+    set @a = DateDiff()
+    set @a = DateParse()
+    set @a = DatePart()
+    set @a = DecryptSymmetric()
+    set @a = DeleteData()
+    set @a = DeleteDE()
+    set @a = DescribeMSCRMEntities()
+    set @a = DescribeMSCRMEntityAttributes()
+    set @a = Divide()
+    set @a = Domain()
+    set @a = Empty()
+    set @a = EncryptSymmetric()
+    set @a = EndImpressionRegion()
+    set @a = EndSmsConversation()
+    set @a = ExecuteFilter()
+    set @a = ExecuteFilterOrderedRows()
+    set @a = Field()
+    set @a = Format()
+    set @a = FormatCurrency()
+    set @a = FormatDate()
+    set @a = FormatNumber()
+    set @a = GetPortfolioItem()
+    set @a = GetPublishedSocialContent()
+    set @a = GetSocialPublishURL()
+    set @a = GetSocialPublishURLByName()
+    set @a = GetValue()
+    set @a = GUID()
+    set @a = HTTPGet()
+    set @a = HTTPPost()
+    set @a = HTTPPost2()
+    set @a = HTTPRequestHeader()
+    set @a = IIf()
+    set @a = Image()
+    set @a = IndexOf()
+    set @a = InsertData()
+    set @a = InsertDE()
+    set @a = InvokeCreate()
+    set @a = InvokeDelete()
+    set @a = InvokeExecute()
+    set @a = InvokePerform()
+    set @a = InvokeRetrieve()
+    set @a = InvokeUpdate()
+    set @a = IsCHTMLBrowser()
+    set @a = IsEmailAddress()
+    set @a = IsNull()
+    set @a = IsNullDefault()
+    set @a = IsPhoneNumber()
+    set @a = Length()
+    set @a = LiveContentMicrositeURL()
+    set @a = LocalDateToSystemDate()
+    set @a = LongSFID()
+    set @a = Lookup()
+    set @a = LookupOrderedRows()
+    set @a = LookupOrderedRowsCS()
+    set @a = LookupRows()
+    set @a = LookupRowsCS()
+    set @a = Lowercase()
+    set @a = MD5()
+    set @a = MicrositeURL()
+    set @a = Mod()
+    set @a = Multiply()
+    set @a = Now()
+    set @a = Output()
+    set @a = OutputLine()
+    set @a = ProperCase()
+    set @a = QueryParameter()
+    set @a = RaiseError()
+    set @a = Random()
+    set @a = RatingStars()
+    set @a = Redirect()
+    set @a = RedirectTo()
+    set @a = RegExMatch()
+    set @a = Replace()
+    set @a = ReplaceList()
+    set @a = RequestParameter()
+    set @a = RetrieveMSCRMRecords()
+    set @a = RetrieveMSCRMRecordsFetchXML()
+    set @a = RetrieveSalesforceJobSources()
+    set @a = RetrieveSalesforceObjects()
+    set @a = Row()
+    set @a = RowCount()
+    set @a = SetObjectProperty()
+    set @a = SetSmsConversationNextKeyword()
+    set @a = SetStateMSCRMRecord()
+    set @a = SetValue()
+    set @a = SHA1()
+    set @a = SHA256()
+    set @a = SHA512()
+    set @a = StringToDate()
+    set @a = StringToHex()
+    set @a = Substring()
+    set @a = Subtract()
+    set @a = SystemDateToLocalDate()
+    set @a = TransformXML()
+    set @a = TreatAsContent()
+    set @a = TreatAsContentArea()
+    set @a = Trim()
+    set @a = UpdateData()
+    set @a = UpdateDE()
+    set @a = UpdateMSCRMRecords()
+    set @a = UpdateSingleSalesforceObject()
+    set @a = Uppercase()
+    set @a = UpsertContact()
+    set @a = UpsertData()
+    set @a = UpsertDE()
+    set @a = UpsertMSCRMRecord()
+    set @a = URLEncode()
+    set @a = V()
+    set @a = WAT()
+    set @a = WATP()
+    set @a = WrapLongURL()
+
+]%%
+
+<!-- FUNCTIONS - INLINE -->
+
+    %%=Add()=%%
+    %%=AddMSCRMListMember()=%%
+    %%=AddObjectArrayItem()=%%
+    %%=AttachFile()=%%
+    %%=AttributeValue()=%%
+    %%=AuthenticatedEmployeeID()=%%
+    %%=AuthenticatedEmployeeNotificationAddress()=%%
+    %%=AuthenticatedEmployeeUserName()=%%
+    %%=AuthenticatedEnterpriseID()=%%
+    %%=AuthenticatedMemberID()=%%
+    %%=AuthenticatedMemberName()=%%
+    %%=BarCodeURL()=%%
+    %%=Base64Decode()=%%
+    %%=Base64Encode()=%%
+    %%=BeginImpressionRegion()=%%
+    %%=BuildOptionList()=%%
+    %%=BuildRowSetFromString()=%%
+    %%=BuildRowSetFromXML()=%%
+    %%=Char()=%%
+    %%=ClaimRow()=%%
+    %%=ClaimRowValue()=%%
+    %%=CloudPagesURL()=%%
+    %%=Concat()=%%
+    %%=ContentArea()=%%
+    %%=ContentAreaByName()=%%
+    %%=ContentBlockbyId()=%%
+    %%=ContentBlockbyKey()=%%
+    %%=ContentBlockbyName()=%%
+    %%=ContentImagebyID()=%%
+    %%=ContentImagebyKey()=%%
+    %%=CreateMSCRMRecord()=%%
+    %%=CreateObject()=%%
+    %%=CreateSalesforceObject()=%%
+    %%=CreateSmsConversation()=%%
+    %%=DataExtensionRowCount()=%%
+    %%=DateAdd()=%%
+    %%=DateDiff()=%%
+    %%=DateParse()=%%
+    %%=DatePart()=%%
+    %%=DecryptSymmetric()=%%
+    %%=DeleteData()=%%
+    %%=DeleteDE()=%%
+    %%=DescribeMSCRMEntities()=%%
+    %%=DescribeMSCRMEntityAttributes()=%%
+    %%=Divide()=%%
+    %%=Domain()=%%
+    %%=Empty()=%%
+    %%=EncryptSymmetric()=%%
+    %%=EndImpressionRegion()=%%
+    %%=EndSmsConversation()=%%
+    %%=ExecuteFilter()=%%
+    %%=ExecuteFilterOrderedRows()=%%
+    %%=Field()=%%
+    %%=Format()=%%
+    %%=FormatCurrency()=%%
+    %%=FormatDate()=%%
+    %%=FormatNumber()=%%
+    %%=GetPortfolioItem()=%%
+    %%=GetPublishedSocialContent()=%%
+    %%=GetSocialPublishURL()=%%
+    %%=GetSocialPublishURLByName()=%%
+    %%=GetValue()=%%
+    %%=GUID()=%%
+    %%=HTTPGet()=%%
+    %%=HTTPPost()=%%
+    %%=HTTPPost2()=%%
+    %%=HTTPRequestHeader()=%%
+    %%=IIf()=%%
+    %%=Image()=%%
+    %%=IndexOf()=%%
+    %%=InsertData()=%%
+    %%=InsertDE()=%%
+    %%=InvokeCreate()=%%
+    %%=InvokeDelete()=%%
+    %%=InvokeExecute()=%%
+    %%=InvokePerform()=%%
+    %%=InvokeRetrieve()=%%
+    %%=InvokeUpdate()=%%
+    %%=IsCHTMLBrowser()=%%
+    %%=IsEmailAddress()=%%
+    %%=IsNull()=%%
+    %%=IsNullDefault()=%%
+    %%=IsPhoneNumber()=%%
+    %%=Length()=%%
+    %%=LiveContentMicrositeURL()=%%
+    %%=LocalDateToSystemDate()=%%
+    %%=LongSFID()=%%
+    %%=Lookup()=%%
+    %%=LookupOrderedRows()=%%
+    %%=LookupOrderedRowsCS()=%%
+    %%=LookupRows()=%%
+    %%=LookupRowsCS()=%%
+    %%=Lowercase()=%%
+    %%=MD5()=%%
+    %%=MicrositeURL()=%%
+    %%=Mod()=%%
+    %%=Multiply()=%%
+    %%=Now()=%%
+    %%=Output()=%%
+    %%=OutputLine()=%%
+    %%=ProperCase()=%%
+    %%=QueryParameter()=%%
+    %%=RaiseError()=%%
+    %%=Random()=%%
+    %%=RatingStars()=%%
+    %%=Redirect()=%%
+    %%=RedirectTo()=%%
+    %%=RegExMatch()=%%
+    %%=Replace()=%%
+    %%=ReplaceList()=%%
+    %%=RequestParameter()=%%
+    %%=RetrieveMSCRMRecords()=%%
+    %%=RetrieveMSCRMRecordsFetchXML()=%%
+    %%=RetrieveSalesforceJobSources()=%%
+    %%=RetrieveSalesforceObjects()=%%
+    %%=Row()=%%
+    %%=RowCount()=%%
+    %%=SetObjectProperty()=%%
+    %%=SetSmsConversationNextKeyword()=%%
+    %%=SetStateMSCRMRecord()=%%
+    %%=SetValue()=%%
+    %%=SHA1()=%%
+    %%=SHA256()=%%
+    %%=SHA512()=%%
+    %%=StringToDate()=%%
+    %%=StringToHex()=%%
+    %%=Substring()=%%
+    %%=Subtract()=%%
+    %%=SystemDateToLocalDate()=%%
+    %%=TransformXML()=%%
+    %%=TreatAsContent()=%%
+    %%=TreatAsContentArea()=%%
+    %%=Trim()=%%
+    %%=UpdateData()=%%
+    %%=UpdateDE()=%%
+    %%=UpdateMSCRMRecords()=%%
+    %%=UpdateSingleSalesforceObject()=%%
+    %%=Uppercase()=%%
+    %%=UpsertContact()=%%
+    %%=UpsertData()=%%
+    %%=UpsertDE()=%%
+    %%=UpsertMSCRMRecord()=%%
+    %%=URLEncode()=%%
+    %%=V()=%%
+    %%=WAT()=%%
+    %%=WATP()=%%
+    %%=WrapLongURL()=%%
+
+
+</body>
+</html>
