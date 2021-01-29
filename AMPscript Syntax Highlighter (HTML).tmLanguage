@@ -346,6 +346,6 @@
 	<key>scopeName</key>
 	<string>text.html.ampscript</string>
 	<key>version</key>
-	<string>1.0</string>
+	<string>1.0.0</string>
 </dict>
 </plist>
