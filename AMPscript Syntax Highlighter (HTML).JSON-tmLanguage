@@ -1,6 +1,6 @@
 {
   "name": "AMPscript Syntax Highlighter (HTML)",
-  "version": "1.0",
+  "version": "1.0.0",
   "scopeName": "text.html.ampscript",
   "fileTypes": [
     "amp",
