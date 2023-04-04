@@ -38,5 +38,5 @@ FEATURES
 UPDATES
 ====
 
-- 1.0.1 - Added support for GetSendTime(), GetJWT() and GetJWTByKeyName() functions.
+- 1.0.5 - Added support for GetSendTime(), GetJWT() and GetJWTByKeyName() functions.
 
