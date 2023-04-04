@@ -1,6 +1,6 @@
 {
   "name": "AMPscript Syntax Highlighter (HTML)",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "scopeName": "text.html.ampscript",
   "fileTypes": [
     "amp",
@@ -169,7 +169,7 @@
         {
           "name": "variable.language.ampscript",
           "comment": "Variable",
-          "match": "\\@[a-zA-Z][A-Za-z0-9_]{0,}"
+          "match": "\\@[A-Za-z0-9_]{0,}"
         },
         {
           "name": "variable.language.ampscript",

@@ -328,7 +328,7 @@
 					<key>comment</key>
 					<string>Variable</string>
 					<key>match</key>
-					<string>\@[a-zA-Z][A-Za-z0-9_]{0,}</string>
+					<string>\@[A-Za-z0-9_]{0,}</string>
 					<key>name</key>
 					<string>variable.language.ampscript</string>
 				</dict>
@@ -346,6 +346,6 @@
 	<key>scopeName</key>
 	<string>text.html.ampscript</string>
 	<key>version</key>
-	<string>1.0.0</string>
+	<string>1.0.5</string>
 </dict>
 </plist>

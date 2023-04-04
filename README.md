@@ -1,5 +1,6 @@
 AMPSCRIPT SYNTAX HIGHLIGHTER
 ====
+
 A Salesforce Marketing Cloud AMPscript syntax highlighter for Sublime Text.
 
 INSTALLATION
@@ -11,11 +12,13 @@ INSTALLATION
 
 USAGE
 ====
+
 - Opening a file with an `.amp` or `.ampscript` extension will automatically invoke the AMPscript Syntax Highlighter
 - To apply syntax highlighting to a document, use the `CTRL-SHIFT-P` hotkey combination and search for `AMPscript`.  Select `Set Syntax: AMPscript Syntax Highlighter (HTML)`.
 
 FEATURES
 ====
+
 - Identifies the following AMPscript syntax:
     - code blocks
     - inline code
@@ -27,7 +30,7 @@ FEATURES
     - variables
     - comments
     - constants
-- Supports all 148 AMPscript functions
+- Supports all 150 AMPscript functions
 - Parses the majority of the system substitution strings
 - Highlights both AMPscript block types: `%%[` `]%%` and `<script runat="server" language="ampscript">` `</script>`
 - Inherits base HTML syntax highlighting (`text.html.basic`)
@@ -35,6 +38,5 @@ FEATURES
 UPDATES
 ====
 
-
-
+- 1.0.1 - Added support for GetSendTime(), GetJWT() and GetJWTByKeyName() functions.
 
