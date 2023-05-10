@@ -1,8 +1,10 @@
 <snippet>
-	<content><![CDATA[<script runat="server" language="ampscript">
+	<content><![CDATA[
+<script runat="server" language="ampscript">
 
 	$1
 
-</script>]]></content>
+</script>
+]]></content>
 	<tabTrigger>%%L</tabTrigger>
 </snippet>

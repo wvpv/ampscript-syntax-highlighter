@@ -21,7 +21,7 @@ Now is the time for all good men and women to come to the aid of their country.
     VAR @VARIABLE1
     VAR @Variable2
     VAR @variable
-    VAR @1ThisIsNotAVariable /* not a valid variable */
+    VAR @1VariableStartingWithNumber
     VAR @ThisHowever_IsAvariable1
 
     SET @ThisHowever_IsAvariable2 = 'test'
@@ -442,8 +442,11 @@ Now is the time for all good men and women to come to the aid of their country.
     set @a = FormatCurrency()
     set @a = FormatDate()
     set @a = FormatNumber()
+    set @a = GetJWT()
+    set @a = GetJWTByKeyName()
     set @a = GetPortfolioItem()
     set @a = GetPublishedSocialContent()
+    set @a = GetSendTime()
     set @a = GetSocialPublishURL()
     set @a = GetSocialPublishURLByName()
     set @a = GetValue()
@@ -594,8 +597,11 @@ Now is the time for all good men and women to come to the aid of their country.
     %%=FormatCurrency()=%%
     %%=FormatDate()=%%
     %%=FormatNumber()=%%
+    %%=GetJWT()=%%
+    %%=GetJWTByKeyName()=%%
     %%=GetPortfolioItem()=%%
     %%=GetPublishedSocialContent()=%%
+    %%=GetSendTime()=%%
     %%=GetSocialPublishURL()=%%
     %%=GetSocialPublishURLByName()=%%
     %%=GetValue()=%%
