@@ -38,5 +38,6 @@ FEATURES
 UPDATES
 ====
 
+- 1.0.6 - Added wvpv-dark theme
 - 1.0.5 - Added support for GetSendTime(), GetJWT() and GetJWTByKeyName() functions.
 
