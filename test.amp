@@ -401,6 +401,7 @@ Now is the time for all good men and women to come to the aid of their country.
     set @a = Base64Encode()
     set @a = BeginImpressionRegion()
     set @a = BuildOptionList()
+    set @a = BuildRowSetFromJSON()
     set @a = BuildRowSetFromString()
     set @a = BuildRowSetFromXML()
     set @a = Char()
@@ -556,6 +557,7 @@ Now is the time for all good men and women to come to the aid of their country.
     %%=Base64Encode()=%%
     %%=BeginImpressionRegion()=%%
     %%=BuildOptionList()=%%
+    %%=BuildRowSetFromJSON()=%%
     %%=BuildRowSetFromString()=%%
     %%=BuildRowSetFromXML()=%%
     %%=Char()=%%
